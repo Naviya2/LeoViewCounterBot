@@ -1,15 +1,15 @@
 {
     "name": "Leo View Counter Bot",
     "description": "Telethon bot to add view counts to a message.",
-    "logo": "",
+    "logo": "https://telegra.ph/file/ecdf3f5a74d60744edf97.jpg",
     "keywords": [
         "telegram",
         "telethon",
         "telegram-bot",
         "botzhub"
     ],
-    "repository": "https://github.com/Naviya2/ViewCountBot",
-    "website": "naviyaofficial.ezyro.com",
+    "repository": "https://github.com/Naviya2/LeoViewCounterBot",
+    "website": "https://t.me/naviya2",
     "success_url": "https://t.me/new_ehi",
     "env": {
         "API_HASH": {
