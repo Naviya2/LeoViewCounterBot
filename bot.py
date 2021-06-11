@@ -28,7 +28,7 @@ async def _(event):
     await event.reply(f"Hello {ok.user.first_name}👋 \nI'm a Leo View Counter Bot 🇱🇰\nSend me a message and I'll attach a view count to it 🙂",
                     buttons=[
                         [Button.url("Developer🧑‍💻", url="https://t.me/naviya2"),
-                        Button.url("Rate us  ★", url="https://t.me/tlgrmcbot?start=leoviewcounterbot-review")]
+                        Button.url("Rate us  ★", url="https://t.me/tlgrmcbot?start=leoviewcounterbot-review")],
                   
                         [Button.url("Updates Channel🗣", url="https://t.me/new_ehi"),
                         Button.url("Support Group👥", url="https://t.me/leosupportx")]
