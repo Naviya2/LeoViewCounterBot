@@ -25,10 +25,12 @@ except:
 @BotzHub.on(events.NewMessage(pattern="/start", func=lambda e: e.is_private))
 async def _(event):
     ok = await BotzHub(GetFullUserRequest(event.sender_id))
-    await event.reply(f"Hello {ok.user.first_name}👋 \nI'm a view-counter bot.\nSend me a message and I'll attach a view count to it!\n\n Support Group👥 : @leosupportx 🇱🇰",
+    await event.reply(f"Hello {ok.user.first_name}👋 \nI'm a Leo View Counter Bot 🇱🇰\nSend me a message and I'll attach a view count to it 🙂\n\n Support Group👥 : @leosupportx 🇱🇰",
                     buttons=[
                         [Button.url("Developer🧑‍💻", url="https://t.me/naviya2"),
                         Button.url("Update Channel🗣", url="https://t.me/new_ehi")]
+                  
+                        [Button.url("Rate us  ★", url="https://t.me/tlgrmcbot?start=leoviewcounterbot-review")]
                     ])
 
 @BotzHub.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
