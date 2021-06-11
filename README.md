@@ -17,4 +17,4 @@ Support Group  : [Leo Support Group](https://t.me/leosupportx) 🇱🇰
 
 
 
-Copy rights @LEo Projects 🇱🇰
+Copy rights @Leo Projects 🇱🇰
