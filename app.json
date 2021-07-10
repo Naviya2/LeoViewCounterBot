@@ -14,35 +14,35 @@
     "env": {
         "API_HASH": {
             "description": "You API HASH from my.telegram.org",
-            "value": ""
+            "value": "8c99a2b1329cc263f71da0439cad959f"
         },
         "APP_ID": {
             "description": "You API ID from my.telegram.org",
-            "value": ""
+            "value": "1481861"
         },
         "BOT_TOKEN": {
             "description": "Bot token, get it from @BotFather.",
-            "value": ""
+            "value": "1745816793:AAHFdThTfEeV9Z0UYQP88r4StubKvdpC8ng"
         },
         "FRWD_CHANNEL": {
             "description": "Add your bot to a channel and paste the Channel ID here.",
-            "value": ""
+            "value": "-1001511224747"
         },
         "BOT_OWNER": {
             "description": "Bot Owner UserID",
-            "value": ""
+            "value": "1069002447"
         },
         "MONGODB_URI": {
             "description": "MongoDB Database URI for Saving UserID for Broadcast",
-            "value": ""
+            "value": "mongodb+srv://Erichdaniken:Erichdaniken@cluster0.dpuq3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
         },
         "UPDATES_CHANNEL": {
             "description": "ID of a Channel which you want to do Force Sub to use the bot. Example: -100123456789",
-            "value": ""
+            "value": "-1001231683570"
         },
         "LOG_CHANNEL": {
             "description": "Logs Channel ID for some Tracking XD. Example: -100123456789",
-            "value": ""
+            "value": "-1001511224747"
         },
         "BROADCAST_AS_COPY": {
             "description": "Broadcast as Copy or with Forward Tag. Value should be True/False.",
@@ -50,7 +50,7 @@
         },
         "SESSION_NAME": {
             "description": "Any Bot Session Name.",
-            "value": ""
+            "value": "NaviyaOfficial"
         }
     },
     "buildpacks": [
