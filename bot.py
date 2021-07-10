@@ -52,7 +52,7 @@ async def countit(event):
     x = await event.forward_to(FRWD_CHANNEL)
     await x.forward_to(event.chat_id)
 
-@LeoViewCounterBot.on(events.NewMessage(filters.private & filters.command("broadcast") & filters.user(Config.BOT_OWNER) & filters.reply)
+@LeoViewCounterBot.on(events.NewMessage(filters.private & filters.command("broadcast") & filters.user(Config.BOT_OWNER) & filters.reply))
 async def _broadcast(event):
     await broadcast_handler(event)
 
