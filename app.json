@@ -29,23 +29,28 @@
             "value": ""
         },
         BOT_OWNER": {
-            "description": "Bot Owner UserID"
+            "description": "Bot Owner UserID",
+            "value": ""
         },
         "MONGODB_URI": {
-            "description": "MongoDB Database URI for Saving UserID for Broadcast"
+            "description": "MongoDB Database URI for Saving UserID for Broadcast",
+            "value": ""
         },
         "UPDATES_CHANNEL": {
             "description": "ID of a Channel which you want to do Force Sub to use the bot. Example: -100123456789",
-            "required": false
+            "value": ""
         },
         "LOG_CHANNEL": {
-            "description": "Logs Channel ID for some Tracking XD. Example: -100123456789"
+            "description": "Logs Channel ID for some Tracking XD. Example: -100123456789",
+            "value": ""
         },
         "BROADCAST_AS_COPY": {
-            "description": "Broadcast as Copy or with Forward Tag. Value should be True/False."
+            "description": "Broadcast as Copy or with Forward Tag. Value should be True/False.",
+            "value": "False"
         },
         "SESSION_NAME": {
-            "description": "Any Bot Session Name."
+            "description": "Any Bot Session Name.",.
+            "value": ""
         }
     },
     "buildpacks": [
