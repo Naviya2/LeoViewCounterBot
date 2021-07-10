@@ -1,10 +1,16 @@
 # (c) 2021-22 < @Naviya2 >
 # < Leo Projects >
 
+import os
+import time
+import psutil
+import shutil
+import string
 import logging
 import asyncio
 from telethon import TelegramClient, events, Button
 from decouple import config
+
 from telethon.tl.functions.users import GetFullUserRequest
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s', level=logging.WARNING)
