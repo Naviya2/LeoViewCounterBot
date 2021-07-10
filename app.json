@@ -27,6 +27,25 @@
         "FRWD_CHANNEL": {
             "description": "Add your bot to a channel and paste the Channel ID here.",
             "value": ""
+        },
+        BOT_OWNER": {
+            "description": "Bot Owner UserID"
+        },
+        "MONGODB_URI": {
+            "description": "MongoDB Database URI for Saving UserID for Broadcast"
+        },
+        "UPDATES_CHANNEL": {
+            "description": "ID of a Channel which you want to do Force Sub to use the bot. Example: -100123456789",
+            "required": false
+        },
+        "LOG_CHANNEL": {
+            "description": "Logs Channel ID for some Tracking XD. Example: -100123456789"
+        },
+        "BROADCAST_AS_COPY": {
+            "description": "Broadcast as Copy or with Forward Tag. Value should be True/False."
+        },
+        "SESSION_NAME": {
+            "description": "Any Bot Session Name."
         }
     },
     "buildpacks": [
