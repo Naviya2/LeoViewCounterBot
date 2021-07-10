@@ -15,7 +15,7 @@ from helpers.forcesub import ForceSub
 from helpers.database.add_user import AddUserToDatabase
 from telethon import TelegramClient, events, Button
 from decouple import config
-
+from helpers.display_progress import humanbytes
 from telethon.tl.functions.users import GetFullUserRequest
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s', level=logging.WARNING)
@@ -52,11 +52,11 @@ async def countit(event):
     x = await event.forward_to(FRWD_CHANNEL)
     await x.forward_to(event.chat_id)
 
-@LeoViewCounterBot.on_message(filters.private & filters.command("broadcast") & filters.user(Config.BOT_OWNER) & filters.reply)
+@LeoViewCounterBot.on(events.NewMessage(filters.private & filters.command("broadcast") & filters.user(Config.BOT_OWNER) & filters.reply)
 async def _broadcast(event):
     await broadcast_handler(event)
 
-@LeoViewCounterBot.on_message(filters.private & filters.command("status") & filters.user(Config.BOT_OWNER))
+@LeoViewCounterBot.on(events.NewMessage(filters.private & filters.command("stats") & filters.user(Config.BOT_OWNER))
 async def show_status_count(event):
     total, used, free = shutil.disk_usage(".")
     total = humanbytes(total)
