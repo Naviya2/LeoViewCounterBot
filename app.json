@@ -28,7 +28,7 @@
             "description": "Add your bot to a channel and paste the Channel ID here.",
             "value": ""
         },
-        BOT_OWNER": {
+        "BOT_OWNER": {
             "description": "Bot Owner UserID",
             "value": ""
         },
