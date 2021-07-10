@@ -52,6 +52,26 @@ async def countit(event):
     x = await event.forward_to(FRWD_CHANNEL)
     await x.forward_to(event.chat_id)
 
+@LeoViewCounterBot.on_message(filters.private & filters.command("broadcast") & filters.user(Config.BOT_OWNER) & filters.reply)
+async def _broadcast():
+    await broadcast_handler(event)
+
+@LeoViewCounterBot.on_message(filters.private & filters.command("status") & filters.user(Config.BOT_OWNER))
+async def show_status_count(_, event: Message):
+    total, used, free = shutil.disk_usage(".")
+    total = humanbytes(total)
+    used = humanbytes(used)
+    free = humanbytes(free)
+    cpu_usage = psutil.cpu_percent()
+    ram_usage = psutil.virtual_memory().percent
+    disk_usage = psutil.disk_usage('/').percent
+    total_users = await db.total_users_count()
+    await event.reply_text(
+        text=f"**Total Disk Space:** {total} \n**Used Space:** {used}({disk_usage}%) \n**Free Space:** {free} \n**CPU Usage:** {cpu_usage}% \n**RAM Usage:** {ram_usage}%\n\n**Total Users in DB:** `{total_users}`\n\n@leofilerenamerbot 🇱🇰",
+        parse_mode="Markdown",
+        quote=True
+    )
+
 print("Leo View Counter Bot is Started")
 print("Do visit @new_ehi..")
 LeoViewCounterBot.run_until_disconnected()
