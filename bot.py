@@ -13,8 +13,6 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from helpers.database.access_db import db
 from helpers.broadcast import broadcast_handler
-from helpers.forcesub import ForceSub
-from helpers.database.add_user import AddUserToDatabase
 from telethon import TelegramClient, events, Button
 from decouple import config
 from helpers.display_progress import humanbytes
