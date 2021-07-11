@@ -35,9 +35,11 @@ except:
     exit()
 
 @LeoViewCounterBot.on(events.NewMessage(pattern="/start", func=lambda e: e.is_private))
-async def _(event):
-    await AddUserToDatabase(event)
-    FSub = await ForceSub(event)
+async def _(bot: Client, event: Message):
+    await AddUserToDatabase(bot, event)
+    FSub = await ForceSub(bot, event)
+    if FSub == 400:
+        return
     ok = await LeoViewCounterBot(GetFullUserRequest(event.sender_id))
     await event.reply(f"Hello {ok.user.first_name}👋 \nI'm a Leo View Counter Bot 🇱🇰\nSend me a message and I'll attach a view count to it 🙂",
                     buttons=[
@@ -49,18 +51,22 @@ async def _(event):
                     ])
 
 @LeoViewCounterBot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
-async def countit(event):
+async def countit(bot: Client, event: Message):
+    await AddUserToDatabase(bot, event)
+    FSub = await ForceSub(bot, event)
+    if FSub == 400:
+        return
     if event.text.startswith('/'):
         return
     x = await event.forward_to(FRWD_CHANNEL)
     await x.forward_to(event.chat_id)
 
 @LeoViewCounterBot.on(events.NewMessage(filters.private & filters.command("broadcast") & filters.user(Config.BOT_OWNER) & filters.reply))
-async def _broadcast(event):
+async def _broadcast(_, event: Message):
     await broadcast_handler(event)
 
 @LeoViewCounterBot.on(events.NewMessage(filters.private & filters.command("stats") & filters.user(Config.BOT_OWNER)))
-async def show_status_count(event):
+async def show_status_count(_, event: Message):
     total, used, free = shutil.disk_usage(".")
     total = humanbytes(total)
     used = humanbytes(used)
