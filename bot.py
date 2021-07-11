@@ -36,11 +36,17 @@ except:
     exit()
 
 @LeoViewCounterBot.on(events.NewMessage(pattern="/start", func=lambda e: e.is_private))
-async def _(event):
-    await AddUserToDatabase(Client, Message)
-    FSub = await ForceSub(bot, event)
-    if FSub == 400:
-        return
+async def _(event, cmd):
+  if not await db.is_user_exist(cmd.from_user.id):
+		await db.add_user(cmd.from_user.id)
+		await bot.send_message(
+			Config.LOG_CHANNEL,
+			f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{Config.BOT_USERNAME} !!"
+		)
+	if Config.UPDATES_CHANNEL:
+		fsub = await handle_force_subscribe(bot, cmd)
+		if fsub == 400:
+			return
     ok = await LeoViewCounterBot(GetFullUserRequest(event.sender_id))
     await event.reply(f"Hello {ok.user.first_name}👋 \nI'm a Leo View Counter Bot 🇱🇰\nSend me a message and I'll attach a view count to it 🙂",
                     buttons=[
@@ -52,11 +58,17 @@ async def _(event):
                     ])
 
 @LeoViewCounterBot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
-async def countit(event):
-    await AddUserToDatabase(Client, Message)
-    FSub = await ForceSub(bot, event)
-    if FSub == 400:
-        return
+async def countit(event, cmd):
+    if not await db.is_user_exist(cmd.from_user.id):
+		await db.add_user(cmd.from_user.id)
+		await bot.send_message(
+			Config.LOG_CHANNEL,
+			f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{Config.BOT_USERNAME} !!"
+		)
+	if Config.UPDATES_CHANNEL:
+		fsub = await handle_force_subscribe(bot, cmd)
+		if fsub == 400:
+			return
     if event.text.startswith('/'):
         return
     x = await event.forward_to(FRWD_CHANNEL)
