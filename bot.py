@@ -36,7 +36,7 @@ except:
     exit()
 
 @LeoViewCounterBot.on(events.NewMessage(pattern="/start", func=lambda e: e.is_private))
-async def _(event):
+async def _(event, bot: Client):
     await AddUserToDatabase(bot, cmd)
     FSub = await ForceSub(bot, event)
     if FSub == 400:
@@ -52,7 +52,7 @@ async def _(event):
                     ])
 
 @LeoViewCounterBot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
-async def countit(event):
+async def countit(event, bot: Client):
     await AddUserToDatabase(bot, cmd)
     FSub = await ForceSub(bot, event)
     if FSub == 400:
