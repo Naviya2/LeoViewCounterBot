@@ -36,8 +36,8 @@ except:
 
 @LeoViewCounterBot.on(events.NewMessage(pattern="/start", func=lambda e: e.is_private))
 async def _(event):
-    await AddUserToDatabase(bot, event)
-    FSub = await ForceSub(bot, event)
+    await AddUserToDatabase(event)
+    FSub = await ForceSub(event)
     ok = await LeoViewCounterBot(GetFullUserRequest(event.sender_id))
     await event.reply(f"Hello {ok.user.first_name}👋 \nI'm a Leo View Counter Bot 🇱🇰\nSend me a message and I'll attach a view count to it 🙂",
                     buttons=[
