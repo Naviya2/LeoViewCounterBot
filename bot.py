@@ -37,12 +37,12 @@ except:
 
 @LeoViewCounterBot.on(events.NewMessage(pattern="/start", func=lambda e: e.is_private))
 async def _(event):
-    await AddUserToDatabase(event, cmd)
+    await AddUserToDatabase(bot, cmd)
     FSub = await ForceSub(bot, event)
     if FSub == 400:
         return
     ok = await LeoViewCounterBot(GetFullUserRequest(event.sender_id))
-    await event.reply(f"Hello {ok.user.first_name}👋 \nI'm a Leo View Counter Bot 🇱🇰\nSend me a message and I'll attach a view count to it 🙂",
+    await event.reply(f"Hello {ok.user.first_name}👋 \nI'm Leo View Counter Bot 🇱🇰\nSend me a message and I'll attach a view count to it 🙂",
                     buttons=[
                         [Button.url("Developer🧑‍💻", url="https://t.me/naviya2"),
                         Button.url("Rate us  ★", url="https://t.me/tlgrmcbot?start=leoviewcounterbot-review")],
@@ -53,7 +53,7 @@ async def _(event):
 
 @LeoViewCounterBot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
 async def countit(event):
-    await AddUserToDatabase(event, cmd)
+    await AddUserToDatabase(bot, cmd)
     FSub = await ForceSub(bot, event)
     if FSub == 400:
         return
