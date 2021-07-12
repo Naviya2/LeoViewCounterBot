@@ -34,7 +34,7 @@ async def ForceSub(Client, Message):
                 text="Sorry Dear, You are Banned to use me ☹️\nFeel free to say in our [Support Group](https://t.me/leosupportx).",
                 parse_mode="markdown",
                 disable_web_page_preview=True,
-                reply_to_Message_id=Message.message_id
+                reply_to_message_id=Message.message_id
             )
             return 400
         else:
@@ -51,7 +51,7 @@ async def ForceSub(Client, Message):
                 ]
             ),
             parse_mode="markdown",
-            reply_to_Message_id=Message.message_id
+            reply_to_message_id=Message.message_id
         )
         return 400
     except FloodWait as e:
