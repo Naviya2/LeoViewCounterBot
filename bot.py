@@ -38,7 +38,7 @@ except:
 @LeoViewCounterBot.on(events.NewMessage(pattern="/start", func=lambda e: e.is_private))
 async def _(event):
     await AddUserToDatabase(client, message)
-    FSub = await ForceSub(client, message)
+    FSub = await ForceSub(bot, cmd)
     if FSub == 400:
         return
     ok = await LeoViewCounterBot(GetFullUserRequest(event.sender_id))
@@ -54,7 +54,7 @@ async def _(event):
 @LeoViewCounterBot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
 async def countit(event):
     await AddUserToDatabase(client, message)
-    FSub = await ForceSub(client, message)
+    FSub = await ForceSub(bot, cmd)
     if FSub == 400:
         return
     if event.text.startswith('/'):
