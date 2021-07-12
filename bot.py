@@ -63,11 +63,11 @@ async def countit(event):
     await x.forward_to(event.chat_id)
 
 @LeoViewCounterBot.on(events.NewMessage(filters.private & filters.command("broadcast") & filters.user(Config.BOT_OWNER) & filters.reply))
-async def _broadcast(_, event: Message):
+async def _broadcast(event):
     await broadcast_handler(event)
 
 @LeoViewCounterBot.on(events.NewMessage(filters.private & filters.command("stats") & filters.user(Config.BOT_OWNER)))
-async def show_status_count(_, event: Message):
+async def show_status_count(event):
     total, used, free = shutil.disk_usage(".")
     total = humanbytes(total)
     used = humanbytes(used)
