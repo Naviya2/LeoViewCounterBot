@@ -34,7 +34,7 @@ async def _(event):
                         Button.url("Support Group👥", url="https://t.me/leosupportx")]
                     ])
 
-@LeoViewCounterBot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
+@LeoViewCounterBot.on(events.NewMessage(incoming=True, func=lambda))
 async def countit(event):
     if event.text.startswith('/'):
         return
